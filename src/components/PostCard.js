@@ -1,16 +1,11 @@
 import { Card } from "antd";
 import React, { useState } from "react";
-import PreviewPublicationModal from "./PreviewPublicationModal";
+import PreviewPublicationModal from "./modals/PreviewPublicationModal";
 
 export default function PostCard({ post, onClick }) {
   const [previewPublicationModal, setPreviewPublicationModal] = useState(false);
   const openPreview = () => {
     setPreviewPublicationModal(true);
-
-    // this.setState({
-    //   previewItem: postNumber,
-    //   previewPublicationModal: true,
-    // });
   };
   return (
     <>

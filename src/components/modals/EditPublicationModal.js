@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MentionsTagsComponent from "../MentionsTagsComponent";
+import MentionsTagsComponent from "../../MentionsTagsComponent";
 
 export default function EditPublicationModal({
   open,

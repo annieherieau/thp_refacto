@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Avatar, Button, Card, Icon, Row } from "antd";
 import { Col } from "antd/es";
-import EditProfileModal from "./EditProfileModal";
-import UploadModal from "./UploadModal";
+import EditProfileModal from "./modals/EditProfileModal";
+import UploadModal from "./modals/UploadModal";
 
 export default function Profile({ profileInfos }) {
   const [profileModal, setProfileModal] = useState(false);
