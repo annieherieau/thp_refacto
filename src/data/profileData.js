@@ -1,12 +1,12 @@
-profileData = {
-  username: "RefactoProject",
+const profileData = {
+  username: "Refacto_Project",
   email: "myprofile@thp.fr",
   phoneNumber: "0601020304",
   createdAt: "2020-02-23T07:50:17.335Z",
-  firstname: "TheHacking",
+  firstname: "The Hacking",
   lastname: "Project",
   profilePicture:
-    "https://res.cloudinary.com/dbu3s1gn0/image/upload/t_square/v1715775846/portfolio/icons/postgre-sql.svg",
+    "https://res.cloudinary.com/dbu3s1gn0/image/upload/t_square/v1715775845/portfolio/icons/node-js.svg",
   posts: [
     {
       imageUrl: 'https://res.cloudinary.com/dbu3s1gn0/image/upload/t_square/v1715775844/portfolio/icons/javascript.svg',
@@ -32,4 +32,4 @@ profileData = {
     },
   ],
 };
-export default profile_data;
+export default profileData;

@@ -17,10 +17,6 @@ export default function UploadModal({ visible, closeModal }) {
     );
   };
 
-  const handleChange = (event) => {
-    setDescription(event.target.value);
-  };
-
   return (
     <Modal
       title="Upload a picture"
@@ -37,22 +33,24 @@ export default function UploadModal({ visible, closeModal }) {
             title="Description"
             type="text"
             value={description}
-            onChange={handleChange}
+            onChange={(event)=>setDescription(event.target.value)}
           />
         </Col>
       </Row>
-      {/* <MentionsTagsComponent
+      <MentionsTagsComponent
+        id="mentions"
         type="mentions"
         value={mentions}
         title="Mention a user"
-        setValue={this.updateMentions}
-      /> */}
-      {/* <MentionsTagsComponent
+        setValue={(value)=>setMentions(value)}
+      />
+      <MentionsTagsComponent
+        id="Hashtags"
         type="tags"
         value={hashtags}
         title="Hashtags"
-        setValue={this.updateHashtags}
-      /> */}
+        setValue={(value)=>setHashtags(value)}
+      />
     </Modal>
   );
 }

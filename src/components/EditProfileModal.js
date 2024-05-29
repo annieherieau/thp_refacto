@@ -6,9 +6,9 @@ import { Row } from "antd/es";
 export default function EditProfileModal({
   visible,
   closeModal,
-  profileData,
+  profileInfos,
 }) {
-  const [profile, setProfile] = useState(profileData);
+  const [profile, setProfile] = useState(profileInfos);
 
   const handleChange = (event) => {
     const value = event.target.value;

@@ -4,14 +4,13 @@ import { Col } from "antd/es";
 import EditProfileModal from "./EditProfileModal";
 import UploadModal from "./UploadModal";
 
-export default function Profile({ profileData }) {
+export default function Profile({ profileInfos }) {
   const [profileModal, setProfileModal] = useState(false);
   const [uploadModal, setUploadModal] = useState(false);
+  
   const formatDate = (date) => {
     const newDate = new Date(date);
-    return `${newDate.getDate()}/${
-      newDate.getMonth() + 1
-    }/${newDate.getFullYear()}`;
+    return newDate.toLocaleDateString();
   };
 
   return (
@@ -27,26 +26,26 @@ export default function Profile({ profileData }) {
                       size={100}
                       icon="user"
                       className="profil-pic"
-                      src={profileData.profilePicture}
+                      src={profileInfos.profilePicture}
                     />
-                    <h3>{`${profileData.firstname} ${profileData.lastname}`}</h3>
+                    <h3>{`${profileInfos.firstname} ${profileInfos.lastname}`}</h3>
                   </Col>
                   <Col span={10}>
                     <p>
                       <Icon type="user" className="p-icon" />
-                      {profileData.username}
+                      {profileInfos.username}
                     </p>
                     <p>
                       <Icon type="mail" className="p-icon" />
-                      {profileData.email}
+                       {profileInfos.email}
                     </p>
                     <p>
                       <Icon type="phone" className="p-icon" />
-                      {profileData.phoneNumber}
+                      {profileInfos.phoneNumber}
                     </p>
                     <p>
                       <Icon type="calendar" className="p-icon" />
-                      {formatDate(profileData.createdAt)}
+                      {formatDate(profileInfos.createdAt)}
                     </p>
                   </Col>
                 </Row>
@@ -73,8 +72,15 @@ export default function Profile({ profileData }) {
           </Card>
         </Col>
       </Row>
-      <EditProfileModal visible={profileModal} closeModal={() => setProfileModal(false)} profileData={profileData} />
-      <UploadModal visible={uploadModal} closeModal={()=> setUploadModal(false)} />
+      <EditProfileModal
+        visible={profileModal}
+        closeModal={() => setProfileModal(false)}
+        profileInfos={profileInfos}
+      />
+      <UploadModal
+        visible={uploadModal}
+        closeModal={() => setUploadModal(false)}
+      />
     </>
-  )
+  );
 }

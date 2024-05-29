@@ -3,10 +3,11 @@ import { Col, Mentions, Row } from 'antd/es';
 
 
 const MentionsTagsComponent = ({
-	title, type, value, setValue, usersList
+	title, type, value, setValue
 }) => {
+
 	const onSelect = (val) => {
-		const res = val.substring(0, val.length - 1);
+		const res = val[val.length - 1] === " " ? val.substring(0, val.length - 1) : val;
 		setValue(res);
 	};
 
@@ -18,7 +19,9 @@ const MentionsTagsComponent = ({
 				<b>{title}</b>
 				{type === 'mentions' && (
 					<Mentions
-						placeholder="Add space between users"
+						placeholder="input @ to mention users"
+						prefix="@"
+						defaultValue={value || '@'}
 						onChange={(value) => onSelect(value)}
 					>
 					</Mentions>
