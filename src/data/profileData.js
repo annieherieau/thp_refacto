@@ -33,4 +33,4 @@ profileData = {
     },
   ],
 };
-export default profileData;
+export default profile_data;

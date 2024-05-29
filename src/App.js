@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { Avatar, Button, Card, Col, Icon, Row, Modal, List, Tag, Input, message } from 'antd/es';
 import MentionsTagsComponent from './MentionsTagsComponent';
+import PostsList from './components/PostsList';
+
 
 class App extends Component {
   constructor() {
@@ -53,8 +55,6 @@ class App extends Component {
       }
     }
     this.formatDate = this.formatDate.bind(this);
-    this.deletePic = this.deletePic.bind(this);
-    this.updatePic = this.updatePic.bind(this);
     this.uploadPicture = this.uploadPicture.bind(this);
     this.updateHashtags = this.updateHashtags.bind(this);
     this.updateMentions = this.updateMentions.bind(this);
@@ -71,14 +71,6 @@ class App extends Component {
       previewItem: postNumber,
       previewPublicationModal: true,
     });
-  }
-
-  updatePic() {
-    alert("J'update la publcation avec l'id : " + this.state.profileData.posts[this.state.previewItem].id);
-  }
-
-  deletePic() {
-    alert("Je supprime la publcation avec l'id : " + this.state.profileData.posts[this.state.previewItem].id);
   }
 
   uploadPicture() {
@@ -106,52 +98,7 @@ class App extends Component {
   render() {
     return (
       <div style={{ margin: 50 }}>
-        <Modal width={520} visible={this.state.previewPublicationModal} onCancel={() => this.setState({ previewPublicationModal: false })}
-          footer={<Row type="flex">
-            <Col span={12} className="text-center">
-              <Button type="ghost" icon="edit" onClick={this.updatePic}>Edit</Button>
-            </Col>
-            <Col span={12} className="text-center">
-              <Button type="danger" icon="delete" onClick={this.deletePic}>Delete</Button>
-            </Col>
-          </Row>}
-        >
-          <Row type="flex" align="middle">
-            <Col xs={24} md={12} className="text-center">
-              <img src={this.state.profileData.posts[this.state.previewItem].imageUrl} width={200} height={200} alt={this.state.profileData.posts[this.state.previewItem].description} />
-            </Col>
-            <Col xs={24} md={12}>
-              <div>
-                <b>Description: </b>
-                <p>{this.state.profileData.posts[this.state.previewItem].description}</p>
-              </div>
-              <div>
-                <b>Hashtag:</b>
-                <List
-                  grid={{ gutter: 16, column: 2 }}
-                  dataSource={this.state.profileData.posts[this.state.previewItem].hashtags}
-                  renderItem={(tag) => (
-                    <List.Item>
-                      <Tag>{`${tag}`}</Tag>
-                    </List.Item>
-                  )}
-                />
-              </div>
-              <div>
-                <b>Mention:</b>
-                <List
-                  grid={{ gutter: 16, column: 2 }}
-                  dataSource={this.state.profileData.posts[this.state.previewItem].mentions}
-                  renderItem={(user) => (
-                    <List.Item>
-                      <Tag>{`@${user}`}</Tag>
-                    </List.Item>
-                  )}
-                />
-              </div>
-            </Col>
-          </Row>
-        </Modal>
+
         <Modal title="Upload a picture" okText="Upload" visible={this.state.uploadModal} onOk={this.uploadPicture} onCancel={() => this.setState({ uploadModal: false })}>
           <Row type="flex" justify="center" className="input-container">
             <Col span={20}>
@@ -228,25 +175,7 @@ class App extends Component {
             </Card>
           </Col>
         </Row>
-        <Row type="flex" justify="center">
-          <Col sm={18} xs={24}>
-            <Col span={24} className="container text-center">
-              <h2>
-                <Icon type="save" />
-                <span className="span-icon">Publications</span>
-              </h2>
-              <Card bordered className="card-pubs" onClick={() => this.openPreview(0)}>
-                <img src={this.state.profileData.posts[0].imageUrl} width={200} height={200} alt={this.state.profileData.posts[0].imageUrl} />
-              </Card>
-              <Card bordered className="card-pubs" onClick={() => this.openPreview(1)}>
-                <img src={this.state.profileData.posts[1].imageUrl} width={200} height={200} alt={this.state.profileData.posts[1].imageUrl} />
-              </Card>
-              <Card bordered className="card-pubs" onClick={() => this.openPreview(2)}>
-                <img src={this.state.profileData.posts[2].imageUrl} width={200} height={200} alt={this.state.profileData.posts[2].imageUrl} />
-              </Card>
-            </Col>
-          </Col>
-        </Row>
+        <PostsList posts={this.state.profileData.posts}/>
       </div>
     )
   }
