@@ -16,7 +16,7 @@ export default function PostCard({ post, onClick }) {
     <>
       <PreviewPublicationModal
         open={previewPublicationModal}
-        onCancel={() => setPreviewPublicationModal(false)}
+        closeModal={() => setPreviewPublicationModal(false)}
         post={post}
       />
 

@@ -6,11 +6,10 @@ profileData = {
   firstname: "TheHacking",
   lastname: "Project",
   profilePicture:
-    "https://blog.thehackingproject.org/wp-content/uploads/2019/03/short_white-1.png",
+    "https://res.cloudinary.com/dbu3s1gn0/image/upload/t_square/v1715775846/portfolio/icons/postgre-sql.svg",
   posts: [
     {
-      imageUrl:
-        "https://f1.pngfuel.com/png/951/574/485/react-logo-javascript-redux-vuejs-angular-angularjs-expressjs-front-and-back-ends-png-clip-art.png",
+      imageUrl: 'https://res.cloudinary.com/dbu3s1gn0/image/upload/t_square/v1715775844/portfolio/icons/javascript.svg',
       description: "This is a Javascript logo",
       hashtags: ["#Javascript", "#reactJS"],
       mentions: ["TheHackingProject"],

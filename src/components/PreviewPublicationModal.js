@@ -2,7 +2,7 @@ import { Button, Col, List, Modal, Tag } from "antd";
 import { Row } from "antd/es";
 import React from "react";
 
-export default function PreviewPublicationModal({open, onCancel, post}){
+export default function PreviewPublicationModal({open, closeModal, post}){
 
 const updatePic = ()=> {
   alert("J'update la publcation avec l'id : " + post.id);
@@ -12,7 +12,7 @@ const deletePic = ()=> {
   alert("Je supprime la publcation avec l'id : " + post.id);
 }
   return(
-    <Modal width={520} visible={open} onCancel={onCancel}
+    <Modal width={520} visible={open} onCancel={closeModal}
     footer={<Row type="flex">
       <Col span={12} className="text-center">
         <Button type="ghost" icon="edit" onClick={updatePic}>Edit</Button>

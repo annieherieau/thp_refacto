@@ -1,8 +1,9 @@
 // Kata written by Matthieu BRAULT for the next-react formation from TheHackingProject
 import React, { Component } from 'react';
-import { Avatar, Button, Card, Col, Icon, Row, Modal, List, Tag, Input, message } from 'antd/es';
-import MentionsTagsComponent from './MentionsTagsComponent';
+// import { Avatar, Button, Card, Col, Icon, Row } from 'antd/es';
+// import MentionsTagsComponent from './MentionsTagsComponent';
 import PostsList from './components/PostsList';
+import Profile from './components/Profile';
 
 
 class App extends Component {
@@ -11,7 +12,6 @@ class App extends Component {
     this.state = {
       editProfilModal: false,
       editPublicationModal: false,
-      previewPublicationModal: false,
       previewItem: 0,
       uploadModal: false,
       description: '',
@@ -28,10 +28,10 @@ class App extends Component {
         createdAt: '2020-02-23T07:50:17.335Z',
         firstname: 'TheHacking',
         lastname: 'Project',
-        profilePicture: 'https://blog.thehackingproject.org/wp-content/uploads/2019/03/short_white-1.png',
+        profilePicture: "https://res.cloudinary.com/dbu3s1gn0/image/upload/v1715775845/portfolio/icons/node-js.svg",
         posts: [
           {
-            imageUrl: 'https://f1.pngfuel.com/png/951/574/485/react-logo-javascript-redux-vuejs-angular-angularjs-expressjs-front-and-back-ends-png-clip-art.png',
+            imageUrl: 'https://res.cloudinary.com/dbu3s1gn0/image/upload/t_square/v1715775844/portfolio/icons/javascript.svg',
             description: 'This is a Javascript logo',
             hashtags: ['#Javascript', '#reactJS'],
             mentions: ['TheHackingProject'],
@@ -54,28 +54,26 @@ class App extends Component {
         ]
       }
     }
-    this.formatDate = this.formatDate.bind(this);
-    this.uploadPicture = this.uploadPicture.bind(this);
+    // this.formatDate = this.formatDate.bind(this);
+    // this.uploadPicture = this.uploadPicture.bind(this);
     this.updateHashtags = this.updateHashtags.bind(this);
     this.updateMentions = this.updateMentions.bind(this);
-    this.updateProfile = this.updateProfile.bind(this);
+    // this.updateProfile = this.updateProfile.bind(this);
   }
 
-  formatDate(date) {
-    const newDate = new Date(date);
-    return `${newDate.getDate()}/${newDate.getMonth() + 1}/${newDate.getFullYear()}`;
-  }
+  // formatDate(date) {
+  //   const newDate = new Date(date);
+  //   return `${newDate.getDate()}/${newDate.getMonth() + 1}/${newDate.getFullYear()}`;
+  // }
 
-  openPreview(postNumber) {
-    this.setState({
-      previewItem: postNumber,
-      previewPublicationModal: true,
-    });
-  }
+  // openPreview(postNumber) {
+  //   this.setState({
+  //     previewItem: postNumber,
+  //     previewPublicationModal: true,
+  //   });
+  // }
 
-  uploadPicture() {
-    alert("J'upload une image avec la description : " + this.state.description + " et les hashtags " + this.state.hashtags + " et les mentions " + this.state.mentions);
-  }
+
 
   updateMentions(value) {
     this.setState({ mentions: value });
@@ -85,21 +83,21 @@ class App extends Component {
     this.setState({ hashtags: value })
   }
 
-  updateProfile() {
-    let tmp = this.state.profileData;
-    tmp.email = this.state.email;
-    tmp.firstname = this.state.firstname;
-    tmp.lastname = this.state.lastname;
-    tmp.phoneNumber = this.state.phoneNumber;
-    this.setState({ profileData: tmp, editProfilModal: false });
-    message.success('Profile well updated', 3);
-  }
+  // updateProfile() {
+  //   let tmp = this.state.profileData;
+  //   tmp.email = this.state.email;
+  //   tmp.firstname = this.state.firstname;
+  //   tmp.lastname = this.state.lastname;
+  //   tmp.phoneNumber = this.state.phoneNumber;
+  //   this.setState({ profileData: tmp, editProfilModal: false });
+  //   message.success('Profile well updated', 3);
+  // }
 
   render() {
     return (
       <div style={{ margin: 50 }}>
 
-        <Modal title="Upload a picture" okText="Upload" visible={this.state.uploadModal} onOk={this.uploadPicture} onCancel={() => this.setState({ uploadModal: false })}>
+        {/* <Modal title="Upload a picture" okText="Upload" visible={this.state.uploadModal} onOk={this.uploadPicture} onCancel={() => this.setState({ uploadModal: false })}>
           <Row type="flex" justify="center" className="input-container">
             <Col span={20}>
               <b>Description:</b>
@@ -108,8 +106,8 @@ class App extends Component {
           </Row>
           <MentionsTagsComponent type="mentions" value={this.state.mentions} title="Mention a user" setValue={this.updateMentions} />
           <MentionsTagsComponent type="tags" value={this.state.hashtags} title="Hashtags" setValue={this.updateHashtags} />
-        </Modal>
-        <Modal title="Edit your account" okText="Update" visible={this.state.editProfilModal} onOk={this.updateProfile} onCancel={() => this.setState({ editProfilModal: false })}>
+        </Modal> */}
+        {/* <Modal title="Edit your account" okText="Update" visible={this.state.editProfilModal} onOk={this.updateProfile} onCancel={() => this.setState({ editProfilModal: false })}>
           <Row type="flex" justify="center" className="input-container">
             <Col span={20}>
               <b>EMail</b>
@@ -134,8 +132,8 @@ class App extends Component {
               <Input id="email" type="text" value={this.state.phoneNumber} onChange={(e) => this.setState({ phoneNumber: e.target.value })} />
             </Col>
           </Row>
-        </Modal>
-        <Row type="flex" align="middle" justify="center">
+        </Modal> */}
+        {/* <Row type="flex" align="middle" justify="center">
           <Col sm={16} xs={24}>
             <Card bordered>
               <Row type="flex" align="middle" justify="center">
@@ -174,7 +172,8 @@ class App extends Component {
               </Row>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
+        <Profile profileData={this.state.profileData}/>
         <PostsList posts={this.state.profileData.posts}/>
       </div>
     )
