@@ -4,10 +4,10 @@ import { Col } from "antd/es";
 import EditProfileModal from "./modals/EditProfileModal";
 import UploadModal from "./modals/UploadModal";
 
-export default function Profile({ profileInfos }) {
+export default function Profile({ profileInfos, onUpdate }) {
   const [profileModal, setProfileModal] = useState(false);
   const [uploadModal, setUploadModal] = useState(false);
-  
+
   const formatDate = (date) => {
     const newDate = new Date(date);
     return newDate.toLocaleDateString();
@@ -37,7 +37,7 @@ export default function Profile({ profileInfos }) {
                     </p>
                     <p>
                       <Icon type="mail" className="p-icon" />
-                       {profileInfos.email}
+                      {profileInfos.email}
                     </p>
                     <p>
                       <Icon type="phone" className="p-icon" />
@@ -76,6 +76,7 @@ export default function Profile({ profileInfos }) {
         visible={profileModal}
         closeModal={() => setProfileModal(false)}
         profileInfos={profileInfos}
+        onUpdate={onUpdate}
       />
       <UploadModal
         visible={uploadModal}
