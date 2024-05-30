@@ -7,7 +7,6 @@ export default function EditProfileModal({
   visible,
   closeModal,
   profileInfos,
-  onUpdate,
 }) {
 
   const profile = useContext(ProfileContext);

@@ -1,10 +1,8 @@
-import { message } from "antd";
 import { createContext } from "react";
+import updateProfile from "./components/updateProfile";
 
 export const ProfileContext = createContext({
   profile: null,
   setProfile: null,
-  updateProfile: () => {
-    message.success("Profile well updated", 3);
-  },
+  updateProfile: (updatedProfile) => updateProfile(updatedProfile),
 });
