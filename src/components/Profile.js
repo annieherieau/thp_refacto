@@ -4,7 +4,7 @@ import { Col } from "antd/es";
 import EditProfileModal from "./modals/EditProfileModal";
 import UploadModal from "./modals/UploadModal";
 
-export default function Profile({ profileInfos, onUpdate }) {
+export default function Profile({ profileInfos }) {
   const [profileModal, setProfileModal] = useState(false);
   const [uploadModal, setUploadModal] = useState(false);
 
@@ -76,7 +76,6 @@ export default function Profile({ profileInfos, onUpdate }) {
         visible={profileModal}
         closeModal={() => setProfileModal(false)}
         profileInfos={profileInfos}
-        onUpdate={onUpdate}
       />
       <UploadModal
         visible={uploadModal}

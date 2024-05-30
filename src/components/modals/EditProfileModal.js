@@ -1,19 +1,21 @@
-import React, {useState } from "react";
-import { Col, Input, Modal, message } from "antd";
+import React, { useContext, useState } from "react";
+import { Col, Input, Modal } from "antd";
 import { Row } from "antd/es";
+import { ProfileContext } from "../../profileContext";
 
 export default function EditProfileModal({
   visible,
   closeModal,
   profileInfos,
-  onUpdate
+  onUpdate,
 }) {
+
+  const profile = useContext(ProfileContext);
   const [updatedProfile, setUpdatedProfile] = useState(profileInfos);
-  const handleUpdate = (e) => {
-    onUpdate(e);
-    // TODO changer les Data
+  const handleUpdate = () => {
     closeModal();
-    message.success("Profile well updated", 3);
+    profile.setProfile(updatedProfile);
+    profile.updateProfile();
   };
 
   return (
