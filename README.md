@@ -1,3 +1,14 @@
+# thp_refacto
+
+- code réécrit en Function Components et hooks
+- Les données JSON dans fichier JSON.
+- Les Modal en composants.
+- Toutes les actions spécifiques à l'édition/suppression via les boutons doivent afficher la même alerte que le composant initial.
+- code DRY
+- Les composants children ne doivent pas recevoir de data inutile par props (par exemple, ne pas envoyer toute la liste des publications à une Modal qui n'affiche qu'une seule publication).
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
